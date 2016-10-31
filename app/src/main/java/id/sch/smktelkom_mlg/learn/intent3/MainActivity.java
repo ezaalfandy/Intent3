@@ -19,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        findViewById(R.id.imageViewmessage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                composesmsmessage("Pesan dari SMK Telkom Malang");
+
+            }
+        });
+
     }
 
     public void dialPhoneNumber(String phonenumber)//Belum DI tes
@@ -29,4 +38,17 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null)
             startActivity(intent);
     }
+
+
+    public void composesmsmessage(String message)//Belum di tes
+    {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra("sms_body", message);
+        if (intent.resolveActivity(getPackageManager()) != null)
+            startActivity(intent);
+
+    }
+
+    
 }
